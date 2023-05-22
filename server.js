@@ -12,21 +12,11 @@ const db = knex({
     // connect to your own database here:
     client: 'pg',
     connection: {
-      host: "127.0.0.1",
+      host: process.env.HOST,
       port: 5432,
-      user: "postgres",
-      password: "test",
-      database: "smart-brain",
-
-      // uncomment below for db connection
-      
-      // connectionString: 'postgres://mydb_edwy_user:zjrOcNWoqs50xE4Rr7fEa9bK0ZpvCFr8@dpg-chdvjlndvk4r607l8qlg-a/mydb_edwy',
-      // host: "dpg-chdvjlndvk4r607l8qlg-a",
-      // port: 5432,
-      // user: "mydb_edwy_user",
-      // password: "zjrOcNWoqs50xE4Rr7fEa9bK0ZpvCFr8",
-      // database: "mydb_edwy",
-
+      user: process.env.USER,
+      password: process.env.PASSWORD,
+      database: process.env.DB,
     }
 });
 
