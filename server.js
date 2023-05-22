@@ -12,20 +12,21 @@ const db = knex({
     // connect to your own database here:
     client: 'pg',
     connection: {
-      host: "127.0.0.1",
-      port: 5432,
-      user: "postgres",
-      password: "test",
-      database: "smart-brain",
+      // host: "127.0.0.1",
+      // port: 5432,
+      // user: "postgres",
+      // password: "test",
+      // database: "smart-brain",
 
       // uncomment below for db connection
       
-      // connectionString: 'postgres://mydb_edwy_user:zjrOcNWoqs50xE4Rr7fEa9bK0ZpvCFr8@dpg-chdvjlndvk4r607l8qlg-a/mydb_edwy',
-      // host: "dpg-chdvjlndvk4r607l8qlg-a",
-      // port: 5432,
-      // user: "mydb_edwy_user",
-      // password: "zjrOcNWoqs50xE4Rr7fEa9bK0ZpvCFr8",
-      // database: "mydb_edwy",
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
+      host: process.env.DATABASE_HOST,
+      port: 5432,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PW,
+      database: process.env.DATABASE_DB
 
     }
 });
@@ -36,8 +37,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {res.send('success')})
-// app.get('/', (req, res)=> { res.send(db.users) })
+// app.get('/', (req, res) => {res.send('success')})
+app.get('/', (req, res)=> { res.send(db.users) })
 app.post('/signin', signin.handleSignin(db, bcrypt))
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db)})
