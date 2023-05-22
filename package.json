@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "start": "nodemon server.js",
-    "build":"build"
+    "start:dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +19,8 @@
     "pg": "^8.10.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2"
   }
 }
