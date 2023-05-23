@@ -1,4 +1,4 @@
-# Smart-Brain-Api
+# Smart-Brain-Api 🧠🖼️
 
 Smartbrain is an image recognition web app designed to detect faces in inserted images. After signing in, users can enter any image URL containing a face, and the web app will highlight the detected face using the Clarifai image recognition API. Additionally, the app keeps track of the number of faces checked by the user and displays this count on their dashboard.
 
